@@ -1,0 +1,125 @@
+# ------------------------
+# OS-specific files
+# ------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ------------------------
+# IDE-specific files
+# ------------------------
+
+# Visual Studio Code
+.vscode/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# ------------------------
+# Dependency directories
+# ------------------------
+
+# Node.js
+node_modules/
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Java
+target/
+*.jar
+*.war
+*.ear
+
+# ------------------------
+# Logs and temporary files
+# ------------------------
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# ------------------------
+# Build artifacts
+# ------------------------
+dist/
+build/
+out/
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.class
+
+# ------------------------
+# Sensitive or configuration files
+# ------------------------
+.env
+.env.*
+*.secret
+*.key
+*.pem
+
+# ------------------------
+# Terraform-specific files
+# ------------------------
+
+# Local Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+
+# Ignore override files as they are usually local
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# Local .terraform directories
+**/.terraform/*
+
+
+# Lock files (for modules and providers)
+.terraform.lock.hcl
+
+# ------------------------
+# Generated files
+# ------------------------
+
+# Packaged distribution files
+*.gz
+*.zip
+*.tar
+
+# Compiled source
+*.out
+*.dSYM/
+
+# ------------------------
+# Other
+# ------------------------
+# Local development database
+*.sqlite
+*.db
+
+# Coverage reports
+coverage/
+*.lcov
