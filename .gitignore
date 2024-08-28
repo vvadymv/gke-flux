@@ -79,6 +79,7 @@ out/
 # Local Terraform state files
 *.tfstate
 *.tfstate.*
+*.tfvars
 
 # Crash log files
 crash.log

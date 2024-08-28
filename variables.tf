@@ -25,3 +25,22 @@ variable "GKE_MACHINE_TYPE" {
 #  default     = "e2-micro"
   description = "GKE VM types"
 }
+
+variable "GITHUB_ORG" {
+  type        = string
+  description = "User of Github repo"
+  default     = ""
+}
+
+variable "GITHUB_TOKEN" {
+  type        = string
+  sensitive   = true
+  description = "Token to Github repo"
+  default     = ""
+}
+
+variable "GITHUB_REPOSITORY" {
+  description = "GitHub repository"
+  type        = string
+  default     = ""
+}
