@@ -80,6 +80,7 @@ out/
 *.tfstate
 *.tfstate.*
 *.tfvars
+!vars-example.tfvars
 
 # Crash log files
 crash.log
