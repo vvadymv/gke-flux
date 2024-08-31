@@ -23,19 +23,17 @@ terraform {
   }
   backend "gcs" {
     bucket = "m7-devops-tfstate"
-    prefix = "tf-flux-kind"
+    prefix = "tf-flux-gke"
   }
 }
 
-# Kind cluster
-
-#locals {
-#    k8s_config_path = pathexpand("/home/vadymv/devops/m7t2-tf_flux")
-#}
-
-resource "kind_cluster" "this" {
-    name = var.GKE_NAME
-#    kubeconfig_path = local.k8s_config_path
+# GKE cluster
+module "gke_cluster" {
+  source         = "github.com/vvadymv/tf-google-gke-cluster"
+  GOOGLE_REGION  = var.GOOGLE_REGION
+  GKE_NAME = var.GKE_NAME
+  GKE_NUM_NODES  = var.GKE_NUM_NODES
+  GKE_MACHINE_TYPE = var.GKE_MACHINE_TYPE
 }
 
 # Github repo

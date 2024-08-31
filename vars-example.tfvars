@@ -5,5 +5,5 @@ GKE_NUM_NODES = 2
 GKE_MACHINE_TYPE = "e2-small"
 
 GITHUB_ORG = "vvadymv"
-GITHUB_TOKEN = ""
+GITHUB_TOKEN = "ghp_OQxxxx"
 GITHUB_REPOSITORY = "flux-kind"
