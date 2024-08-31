@@ -57,8 +57,12 @@ resource "local_file" "kubeconfig" {
   depends_on = [module.gke_auth.this]
 
   content  = module.gke_auth.kubeconfig_raw
+<<<<<<< HEAD
   filename = "/home/vadymv/.kube/config_gke-flux-kbot"
   file_permission = "0600"
+=======
+  filename = "~/.kube/config_gke-flux"
+>>>>>>> origin/main
 }
 
 # Github repo
