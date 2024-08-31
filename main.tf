@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/google"
       version = "5.42.0"
     }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = ">= 2.0.2"
+    }
     kind = {
       source = "tehcyx/kind"
       version = "0.6.0"
@@ -28,12 +32,32 @@ terraform {
 }
 
 # GKE cluster
+data "google_client_config" "default" {}
+
 module "gke_cluster" {
   source         = "github.com/vvadymv/tf-google-gke-cluster"
   GOOGLE_REGION  = var.GOOGLE_REGION
   GKE_NAME = var.GKE_NAME
   GKE_NUM_NODES  = var.GKE_NUM_NODES
   GKE_MACHINE_TYPE = var.GKE_MACHINE_TYPE
+}
+
+## Authentication gathering
+module "gke_auth" {
+  depends_on = [module.gke_cluster.this]
+  
+  source               = "terraform-google-modules/kubernetes-engine/google//modules/auth"
+  project_id           = var.GOOGLE_PROJECT
+  cluster_name         = var.GKE_NAME
+  location             = var.GOOGLE_REGION
+}
+
+## Generate kubeconfig
+resource "local_file" "kubeconfig" {
+  depends_on = [module.gke_auth.this]
+
+  content  = module.gke_auth.kubeconfig_raw
+  filename = "~/.kube/config_gke-flux"
 }
 
 # Github repo
