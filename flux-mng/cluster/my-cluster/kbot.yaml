@@ -20,8 +20,8 @@ spec:
   chart:
     spec:
       chart: ./helm
-      reconcileStrategy: ChartVersion
-      version: "v1.1.1-*"
+      reconcileStrategy: Revision
+      version: "v*"
       sourceRef:
         kind: GitRepository
         name: kbot
